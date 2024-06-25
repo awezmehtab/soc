@@ -1,2 +1,2 @@
-# soc
-# soc
+# SoC
+This repository contains the code I've written each week after learning new topics as guided by my mentor. These problems are submitted by me, wx_qy means submitted in week x, question number y. It also contains practice problems that I've done in the form wx_py (similar except that p represents practice).
