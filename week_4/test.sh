@@ -1,14 +1,18 @@
 #!/bin/bash
 
 # Check if the correct number of arguments is provided
-if [ "$#" -lt 2 ]; then
+if [ "$#" -lt 1 ]; then
     echo "Usage: $0 <file_name_without_extension> <number_of_tests> <flags>"
     exit 1
 fi
 
 # Assign arguments to variables
 file_name=$1
-num_tests=$2
+if [ -n "$2" ]; then
+    num_tests=$2
+else
+    num_tests=$(ls -1 "$file_name" | grep -E '^[0-9]+\.in$' | wc -l)
+fi
 
 # Compile the C++ file with the specified flags
 if [ $? -eq 3 ]; then
