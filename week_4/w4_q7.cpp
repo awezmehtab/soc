@@ -9,10 +9,10 @@ vector<int> grundy(MAXN + 1, -1); // Initialize Grundy numbers with -1 (uncomput
 int compute_grundy(int n) {
     if (n <= 1) return 0; // Base case
 
-    if (grundy[n] != -1) return grundy[n]; // Return memoized value if already computed
+    if (grundy[n] != -1) return grundy[n];
 
     unordered_set<int> s;
-    for (int i = 1; i <= n / 2; ++i) {
+    for (int i = 1; i <= (n&1 ? n/2 : n/2-1); ++i) {
         int g = compute_grundy(i) ^ compute_grundy(n - i);
         s.insert(g);
     }
@@ -26,7 +26,7 @@ int compute_grundy(int n) {
 }
 
 int main() {
-    ios::sync_with_stdio(false);
+    ios::sync_with_stdio(0);
     cin.tie(0);
     cout.tie(0);
 
