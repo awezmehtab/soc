@@ -29,16 +29,12 @@ void where(vector<point>& p, point& q) {
             return;
         }
         if (isnan(ang)) {
-            // cout << "for point " << q.x << " " << q.y << " ";
-            // cout << "nan between points " << p[i].x << " " << p[i].y << " and " << p[i+1].x << " " << p[i+1].y;
-            // cout << "because we're trying for acos of " << acos((p[i]-q).x*(p[i+1]-q).x + (p[i]-q).y*(p[i+1]-q).y)/(sqrt((p[i]-q).x*(p[i]-q).x + (p[i]-q).y*(p[i]-q).y) * sqrt((p[i+1]-q).x*(p[i+1]-q).x + (p[i+1]-q).y*(p[i+1]-q).y)) << "\n";
             cout << "BOUNDARY\n";
             return;
         }
         if (ccw(p[i], q, p[i+1])) sum += ang;
         else sum -= ang;
     }
-    // cout << sum << " ";
     if (abs(sum - 2*M_PI) < EPS || abs(sum + 2*M_PI) < EPS) cout << "INSIDE\n";
     else if (abs(sum) < EPS) cout << "OUTSIDE\n";
     else cout << "BOUNDARY\n";
@@ -60,7 +56,6 @@ int main () {
     for (ll i = 0; i < m; i++) {
         ll a, b; cin >> a >> b;
         point q = point(a, b);
-        // cout << "point num " << i+1 << " is ";
         where(p, q);
     }
 }
